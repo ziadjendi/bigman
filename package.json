@@ -13,5 +13,10 @@
     "test automation"
   ],
   "author": "Ziad Jendi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.19.2",
+    "config": "3.3.1",
+    "newman": "5.1.1"
+  }
 }
