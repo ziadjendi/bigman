@@ -1,0 +1,17 @@
+{
+  "name": "bigman",
+  "version": "0.1.0",
+  "description": "Bigman is a command-line collection runner for Postman. It is built on Newman with extra features to run collection folders dynamically.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "postman",
+    "newman",
+    "test runner",
+    "test automation"
+  ],
+  "author": "Ziad Jendi",
+  "license": "ISC"
+}
