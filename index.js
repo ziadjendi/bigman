@@ -43,7 +43,6 @@ const setEnvironmentVars = async (environmentName, variables) => {
         : JSON.stringify(variables[varName]);
     if (existVar) {
       const index = environment.values.indexOf(existVar);
-      console.log(existVar.key);
       existVar.value = varValue;
       environment.values[index] = existVar;
     } else {
@@ -56,7 +55,7 @@ const setEnvironmentVars = async (environmentName, variables) => {
   }
   const envUID = await getEnvironmentUID(environmentName);
   const data = await pmapi.updateEnvironment(envUID, { environment });
-  console.log(data);
+  return data;
 };
 
 const workflowGroups = async (collectionID) => {
@@ -79,7 +78,6 @@ const listWorkflows = async (groupName) => {
   }
   const workflows = groupInfo.item.map((wf) => wf.name);
   const result = { collectionID: groupInfo.collectionID, workflows };
-  console.log(result);
   return result;
 };
 
