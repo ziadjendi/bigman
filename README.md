@@ -27,7 +27,7 @@ To run bigman, make sure that you have installed Node.js >= v12.
 To install bigman you need to have NPM so if you installed Node.js you probably have NPM also installed with it.<br/>
 `npm install bigman`
 
-then set the environment variable **_POSTMANKEY_** that hold that value for **_Postman API key_** in .env file.
+then set the environment variable **_POSTMANKEY_** that hold that value for **_Postman API key_** in **_.env_** file.
 
 ## Using Bigman
 
