@@ -59,7 +59,7 @@ const setEnvironmentVars = async (environmentName, variables) => {
   console.log(data);
 };
 
-const WorkflowGroups = async (collectionID) => {
+const workflowGroups = async (collectionID) => {
   const { collection } = await pmapi.getCollection(collectionID);
   const groups = collection.item;
   return groups;
@@ -69,7 +69,7 @@ const listWorkflows = async (groupName) => {
   const collections = await listCollections();
   let groupInfo = null;
   for (const coll of collections) {
-    const groups = await WorkflowGroups(coll.uid);
+    const groups = await workflowGroups(coll.uid);
     groupInfo = groups.find((group) => group.name === groupName);
 
     if (groupInfo) {
@@ -85,7 +85,7 @@ const listWorkflows = async (groupName) => {
 
 const runTest = async ({
   collectionName,
-  workflowGroups = [],
+  wfGroups = [],
   environment = "dev",
   workflows = [],
   variables = {},
@@ -95,15 +95,12 @@ const runTest = async ({
   if (Object.keys(variables)) await setEnvironmentVars(environment, variables);
   const collectionUID = await getCollectionUID(collectionName);
   const environmentUID = await getEnvironmentUID(environment);
-  if (!workflows.length && !workflowGroups.length) {
+  if (!workflows.length && !wfGroups.length) {
     test(collectionUID, environmentUID);
   } else {
     const collection = await pmapi.getCollection(collectionUID);
     for (const wfGroup of collection.item) {
-      if (
-        (workflowGroups && workflowGroups.includes(wfGroup.name)) ||
-        !workflowGroups.length
-      ) {
+      if ((wfGroups && wfGroups.includes(wfGroup.name)) || !wfGroups.length) {
         for (const wf of wfGroup.item) {
           if (!workflows.includes(wf.name) && workflows.length) {
             const index = wfGroup.item.indexOf(wf);
@@ -120,13 +117,22 @@ const runTest = async ({
   }
 };
 
-module.exports = {
+module.exports.default = {
   listCollections,
   getCollectionUID,
-  WorkflowGroups,
+  workflowGroups,
   listWorkflows,
   listEnvironments,
   getEnvironmentUID,
   setEnvironmentVars,
   runTest,
 };
+
+exports.listCollections = listCollections;
+exports.getCollectionUID = getCollectionUID;
+exports.workflowGroups = workflowGroups;
+exports.listWorkflows = listWorkflows;
+exports.listEnvironments = listEnvironments;
+exports.getEnvironmentUID = getEnvironmentUID;
+exports.setEnvironmentVars = setEnvironmentVars;
+exports.runTest = runTest;
