@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziadjendi/bigman.git"
+  },
   "keywords": [
     "postman",
     "newman",
@@ -13,11 +17,19 @@
     "test automation"
   ],
   "author": "Ziad Jendi",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ziadjendi/bigman/issues"
+  },
+  "homepage": "https://github.com/ziadjendi/bigman#readme",
   "dependencies": {
     "axios": "0.19.2",
-    "config": "3.3.1",
+    "dotenv": "8.2.0",
     "lodash": "4.17.18",
-    "newman": "5.1.1"
+    "newman": "5.1.1",
+    "newman-reporter-html": "1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "7.4.0"
   }
 }
