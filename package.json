@@ -1,6 +1,6 @@
 {
   "name": "bigman",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bigman is a command-line collection runner for Postman. It is built on Newman with extra features to run collection folders dynamically.",
   "main": "index.js",
   "scripts": {
