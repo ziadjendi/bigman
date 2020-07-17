@@ -1,11 +1,9 @@
-const bigman = require("../index");
-
+const bigman = require("bigman");
 const options = {
-  collectionName: "Abjadiyat",
-  workflows: "Login",
-  environment: "prod",
-  workflowGroups: "Teachers App",
+  collectionName: "Project API",
+  wfGroups: ["Web Application", "Mobile Application"],
+  workflows: ["Login", "profile"],
+  environment: "production",
   variables: {},
 };
-
 bigman.runTest(options);

@@ -23,10 +23,8 @@ const getCollections = async () => {
 
 const getCollection = async (id) => {
   try {
-    const {
-      data: { collection },
-    } = await http.get(collectionsUrl + "/" + id, { headers });
-    return collection;
+    const { data } = await http.get(collectionsUrl + "/" + id, { headers });
+    return data;
   } catch (error) {
     console.log(error);
   }
