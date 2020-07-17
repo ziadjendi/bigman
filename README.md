@@ -92,5 +92,3 @@ In this example the bigman will run collection **Project API** but only API requ
 
 6. **listWFGroups** function it takes the collection name as parameter and return an array of first level folders names (workflow Groups) for that collection.
 7. **listWorkflows** function it takes the workflow group name as a parameter and iterates overall collections and for the first collection that has this workflow group name(first level folder name), it goes through it and returns an object of two properties collectionID with value of the UID for the found collction and array of second-level folders names (workflows) for that collection.
-
-[EOF]
